@@ -1,0 +1,164 @@
+@use 'sass:color';
+
+.contact-section {
+  background: linear-gradient(135deg, rgba($primary, 0.05), rgba($secondary, 0.05));
+}
+
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: spacer(4);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 spacer(3);
+
+  @media (max-width: breakpoint(lg)) {
+    grid-template-columns: 1fr;
+    gap: spacer(5);
+  }
+}
+
+.contact-form {
+  .form-group {
+    margin-bottom: spacer(3);
+
+    label {
+      display: block;
+      margin-bottom: spacer(5);
+      font-weight: 500;
+      color: $text-dark;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: $spacer-unit;
+      border: 1px solid $gray;
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+
+      &:focus {
+        outline: none;
+        border-color: $primary;
+        box-shadow: 0 0 0 2px rgba($primary, 0.2);
+      }
+
+      &.error {
+        border-color: #ff4444;
+      }
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .error-message {
+      display: block;
+      margin-top: spacer(5);
+      color: #ff4444;
+      font-size: 0.9rem;
+    }
+  }
+
+  .submit-btn {
+    background: $primary;
+    color: white;
+    border: none;
+    padding: $spacer-unit spacer(3);
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 'background 0.3s ease';
+    width: 100%;
+
+    &:hover {
+      background: color.adjust($primary, $lightness: 10%);
+    }
+  }
+}
+
+.contact-info {
+  h3 {
+    margin-top: 0;
+    margin-bottom: spacer(3);
+    color: $primary;
+  }
+
+  p {
+    margin-bottom: spacer(5);
+    line-height: 1.6;
+  }
+}
+
+.social-links {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacer-unit;
+
+  @media (max-width: breakpoint(sm)) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: $spacer-unit;
+  padding: $spacer-unit;
+  border-radius: 4px;
+  color: $text-dark;
+  text-decoration: none;
+  background: rgba($gray, 0.3);
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba($primary, 0.1);
+    color: $primary;
+  }
+
+  .social-icon {
+    font-size: 1.2rem;
+  }
+}
+
+// Dark mode styles
+.app.dark {
+  .contact-form {
+    .form-group {
+      label {
+        color: $text-light;
+      }
+
+      input,
+      textarea {
+        background: rgba(white, 0.1);
+        border-color: rgba(white, 0.2);
+        color: white;
+
+        &:focus {
+          border-color: $primary;
+        }
+      }
+    }
+  }
+
+  .contact-info {
+    h3,
+    p {
+      color: $text-light;
+    }
+  }
+
+  .social-link {
+    color: $text-light;
+    background: rgba(white, 0.1);
+
+    &:hover {
+      background: rgba($primary, 0.2);
+    }
+  }
+}

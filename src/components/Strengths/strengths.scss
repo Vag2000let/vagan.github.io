@@ -1,0 +1,56 @@
+@use 'sass:color';
+
+.strengths-section {
+  background: linear-gradient(to bottom, rgba($primary, 0.03), rgba($secondary, 0.03));
+}
+
+.strengths-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: spacer(3);
+  margin-top: spacer(5);
+
+  @include respond(breakpoint(md)) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.strength-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: spacer(3);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  text-align: center;
+
+  .app.dark & {
+    background: color.adjust($bg-dark, $lightness: 5%);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  .strength-icon {
+    font-size: 2.5rem;
+    margin-bottom: $spacer-unit;
+  }
+
+  h3 {
+    color: var(--text-color);
+    margin-bottom: spacer(5);
+    font-size: 1.3rem;
+  }
+
+  p {
+    color: var(--text-color);
+    font-size: 0.95rem;
+    line-height: 1.5;
+
+    .app.dark & {
+      color: rgba($text-light, 0.9);
+    }
+  }
+}

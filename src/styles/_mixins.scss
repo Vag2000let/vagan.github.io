@@ -1,0 +1,102 @@
+@use 'sass:color';
+@use 'variables' as *;
+
+// Flex
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-column-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+// Cards
+// $border-radius-md: 0.5rem !default;
+
+@mixin card-style {
+  background: white;
+  border-radius: $border-radius-md;
+  box-shadow: $box-shadow-sm;
+  transition: all $transition-normal;
+  padding: spacer(3);
+
+  &:hover {
+    box-shadow: $box-shadow-md;
+    transform: translateY(-2px);
+  }
+}
+
+@mixin section-padding {
+  padding: spacer(4) 0;
+
+  @media (max-width: breakpoint(md)) {
+    padding: spacer(5) 0;
+  }
+}
+
+// Buttons
+@mixin button-reset {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  outline: none;
+  font-family: inherit;
+}
+
+@mixin primary-button {
+  background: $primary;
+  color: white;
+  border: none;
+  padding: $spacer-unit spacer(3);
+  border-radius: $border-radius-sm;
+  font-weight: 500;
+  transition: background $transition-normal;
+
+  &:hover {
+    background: color.adjust($primary, $lightness: 10%);
+  }
+
+  &:disabled {
+    background: color.adjust($primary, $lightness: 30%);
+    cursor: not-allowed;
+  }
+}
+
+// Media queries
+@mixin respond($breakpoint) {
+  @if $breakpoint == sm {
+    @media (max-width: breakpoint(sm)) {
+      @content;
+    }
+  } @else if $breakpoint == md {
+    @media (max-width: breakpoint(md)) {
+      @content;
+    }
+  } @else if $breakpoint == lg {
+    @media (max-width: breakpoint(lg)) {
+      @content;
+    }
+  } @else if $breakpoint == xl {
+    @media (max-width: breakpoint(xl)) {
+      @content;
+    }
+  }
+}

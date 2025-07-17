@@ -1,0 +1,141 @@
+@use 'sass:color';
+
+.roadmap-section {
+  background: rgba($secondary, 0.05);
+  padding: spacer(4) 0;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: $primary;
+  }
+}
+
+.roadmap-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 spacer(3);
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 40px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: rgba($primary, 0.2);
+    border-radius: 2px;
+
+    @include respond(breakpoint(md)) {
+      left: 30px;
+    }
+  }
+}
+
+.roadmap-item {
+  @include card-style;
+  display: flex;
+  gap: spacer(3);
+  margin-bottom: spacer(3);
+  position: relative;
+  overflow: hidden;
+  background: var(--card-bg);
+  align-items: flex-start;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    background: $gray;
+  }
+
+  &.in-progress::before {
+    background: $primary;
+  }
+
+  &.planned::before {
+    background: $secondary;
+  }
+
+  &.future::before {
+    background: color.adjust($gray, $lightness: 20%);
+  }
+
+  @include respond(md) {
+    flex-direction: column;
+    gap: $spacer-unit;
+    padding: $spacer-unit;
+  }
+}
+
+.roadmap-icon {
+  font-size: 1.5rem;
+  color: $primary;
+  min-width: 50px;
+  height: 50px;
+  background: rgba($primary, 0.1);
+  border-radius: 50%;
+  @include flex-center;
+  flex-shrink: 0;
+
+  @include respond(md) {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+}
+
+.roadmap-content {
+  flex: 1;
+
+  h3 {
+    margin: 0 0 spacer(5);
+    color: var(--text-color);
+  }
+
+  p {
+    margin: 0 0 $spacer-unit;
+    color: rgba(var(--text-color-rgb), 0.8);
+  }
+}
+
+.roadmap-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+
+  .status {
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-weight: 500;
+
+    &.in-progress {
+      background: rgba($primary, 0.1);
+      color: $primary;
+    }
+
+    &.planned {
+      background: rgba($secondary, 0.1);
+      color: $secondary;
+    }
+
+    &.future {
+      background: rgba($gray, 0.3);
+      color: color.adjust($gray, $lightness: 30%);
+    }
+  }
+
+  .timeline {
+    color: rgba(var(--text-color-rgb), 0.5);
+  }
+}

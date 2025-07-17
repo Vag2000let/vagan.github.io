@@ -1,0 +1,72 @@
+@use 'sass:color';
+
+.skills-section {
+  background: linear-gradient(to bottom, rgba($secondary, 0.03), rgba($primary, 0.03));
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: spacer(3);
+  margin-top: spacer(5);
+
+  @include respond(breakpoint(md)) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.skill-category {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: spacer(3);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+
+  .app.dark & {
+    background: color.adjust($bg-dark, $lightness: 5%);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  h3 {
+    color: $primary;
+    font-size: 1.2rem;
+    position: relative;
+    padding-bottom: $spacer-unit;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: $secondary;
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    padding: spacer(3);
+    position: relative;
+
+    &::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: $secondary;
+    }
+
+    .app.dark & {
+      color: rgba($text-light, 0.9);
+    }
+  }
+}

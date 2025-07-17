@@ -1,0 +1,87 @@
+.header {
+  position: relative;
+  background: linear-gradient(to bottom, rgba($primary, 0.1), transparent);
+
+  .header-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem 0 0 0;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+  .header-text {
+    align-self: center;
+  }
+
+  .photo-container {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--primary);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .tagline {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto spacer(5);
+    color: rgba($text-dark, 0.8);
+    @include respond(breakpoint(md)) {
+      font-size: 1rem;
+    }
+  }
+}
+
+.main-nav {
+  margin-top: spacer(3);
+  .nav-list {
+    @include flex-center;
+    flex-wrap: wrap;
+    gap: $spacer-unit;
+    list-style: none;
+  }
+
+  .nav-link {
+    @include button-reset;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    padding: $spacer-unit;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    color: var(--text-color);
+
+    &.active {
+      background: rgba($primary, 0.1);
+      color: $primary;
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+      color: $primary;
+    }
+  }
+
+  .nav-icon {
+    font-size: 1.2rem;
+  }
+
+  .nav-label {
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+}

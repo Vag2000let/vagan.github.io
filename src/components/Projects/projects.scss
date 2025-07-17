@@ -1,0 +1,257 @@
+@use 'sass:color';
+
+.projects-section {
+  background: linear-gradient(to bottom, rgba($primary, 0.03), rgba($secondary, 0.03));
+  padding: spacer(4) 0;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 60%;
+    height: 200%;
+    background: radial-gradient(circle, rgba($primary, 0.05) 0%, transparent 70%);
+    z-index: 0;
+  }
+
+  h2 {
+    position: relative;
+    z-index: 1;
+    margin-bottom: spacer(4);
+  }
+}
+
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: spacer(5);
+  position: relative;
+  z-index: 1;
+
+  @include respond(breakpoint(md)) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .app.dark & {
+    background: color.adjust($primary, $lightness: 5%);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+
+    .project-image {
+      &::after {
+        opacity: 0.3;
+      }
+
+      img {
+        transform: scale(1.05);
+      }
+    }
+
+    .project-content {
+      .tags .tag {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.project-image {
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba($primary, 0.7), rgba($secondary, 0.7));
+    opacity: 0.2;
+    transition: opacity 0.3s ease;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+}
+
+.project-content {
+  padding: spacer(3);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: $spacer-unit;
+    color: var(--text-color);
+    position: relative;
+    display: inline-block;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background: $secondary;
+      transition: width 0.3s ease;
+    }
+  }
+
+  p {
+    margin-bottom: spacer(3);
+    color: var(--text-color);
+    flex-grow: 1;
+
+    .app.dark & {
+      color: rgba($text-light, 0.8);
+    }
+  }
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: spacer(5);
+  margin-bottom: spacer(3);
+
+  .tag {
+    background: var(--secondary);
+    color: $text-light;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    transform: translateY(10px);
+    opacity: 0;
+    animation: fadeInUp 0.5s ease forwards;
+
+    @for $i from 1 through 10 {
+      &:nth-child(#{$i}) {
+        animation-delay: $i * 0.1s;
+      }
+    }
+
+    .app.dark & {
+      background: var(--bg-color);
+      color: $text-dark;
+    }
+  }
+}
+
+.project-links {
+  display: flex;
+  gap: $spacer-unit;
+  margin-top: auto;
+
+  a {
+    @include button-reset;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-decoration: none;
+
+    &:first-child {
+      background: $primary;
+      color: white;
+
+      &:hover {
+        background: color.adjust($primary, $lightness: 10%);
+        transform: translateY(-2px);
+      }
+    }
+
+    &:last-child {
+      border: 1px solid $primary;
+      color: $primary;
+
+      .app.dark & {
+        border-color: $secondary;
+        color: $secondary;
+      }
+
+      &:hover {
+        background: rgba($primary, 0.1);
+        transform: translateY(-2px);
+      }
+    }
+
+    svg {
+      font-size: 0.9em;
+    }
+  }
+}
+
+// Анимации для появления проектов
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Адаптация для мобильных устройств
+@include respond(breakpoint(sm)) {
+  .projects-section {
+    padding: spacer(5) 0;
+  }
+
+  .project-card {
+    max-width: 100%;
+  }
+
+  .project-image {
+    height: 180px;
+  }
+
+  .project-content {
+    padding: $spacer-unit;
+  }
+
+  .project-links {
+    flex-direction: column;
+    gap: spacer(5);
+
+    a {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+}

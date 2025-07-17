@@ -1,0 +1,56 @@
+@use 'sass:color';
+
+.values-section {
+  background: linear-gradient(to bottom, rgba($primary, 0.03), rgba($secondary, 0.03));
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: spacer(3);
+  margin-top: spacer(5);
+
+  @include respond(breakpoint(md)) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.value-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: spacer(3);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border-left: 4px solid $primary;
+
+  // .app.dark & {
+  //   background: color.adjust($bg-dark, $lightness: 5%);
+  //   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  //   border-left-color: $secondary;
+  // }
+
+  // &:hover {
+  //   transform: translateY(-5px);
+  //   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  // }
+
+  h3 {
+    color: $primary;
+    margin-bottom: spacer(5);
+    font-size: 1.2rem;
+
+    // .app.dark & {
+    //   color: $secondary;
+    // }
+  }
+
+  p {
+    color: var(--text-color);
+    font-size: 0.95rem;
+    line-height: 1.5;
+
+    // .app.dark & {
+    //   color: rgba($text-light, 0.8);
+    // }
+  }
+}
