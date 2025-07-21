@@ -3,7 +3,6 @@ import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
 import './projects.scss'
 
 const ProjectCard = ({ project }) => {
-  // Анимации
   const cardVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {

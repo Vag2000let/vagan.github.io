@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
-import ValueCard from './ValueCard'
-import './values.scss'
+import ProfessionalValueCard from './ProfessionalValueCard'
+import './professionalValues.scss'
 
 const values = [
   {
@@ -21,9 +21,9 @@ const values = [
   }
 ]
 
-export default function Values() {
+export default function ProfessionalValues() {
   return (
-    <section id="values" className="values-section">
+    <section id="values" className="section">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -34,7 +34,7 @@ export default function Values() {
 
         <div className="values-grid">
           {values.map((value, index) => (
-            <ValueCard
+            <ProfessionalValueCard
               key={index}
               title={value.title}
               description={value.description}

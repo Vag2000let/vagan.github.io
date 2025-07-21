@@ -50,7 +50,7 @@ export default function Header({ activeSection, setActiveSection }) {
                 }
               }}
             >
-              👋
+              🖐
             </motion.div>
           )}
 

@@ -1,13 +1,15 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import Header from '@components/Header/Header.jsx'
-import Skills from '@components/Skills/Skills.jsx'
-import Projects from '@components/Projects/Projects.jsx'
-import Strengths from '@components/Strengths/Strengths'
-import Values from '@components/Values/Values'
-import Roadmap from '@components/Roadmap/Roadmap'
-import Contact from '@components/Contact/Contact'
-import ThemeToggle from '@components/ThemeToggle/ThemeToggle.jsx'
+import {
+  Header,
+  Skills,
+  Projects,
+  Strengths,
+  ProfessionalValues,
+  Roadmap,
+  Contact,
+  ThemeToggle
+} from '@/components'
 
 export default function App() {
   const [activeSection, setActiveSection] = useState('home')
@@ -29,7 +31,7 @@ export default function App() {
               <Skills id="skills" />
               <Projects id="projects" />
               <Strengths id="strengths" />
-              <Values id="values" />
+              <ProfessionalValues id="values" />
               <Roadmap id="roadmap" />
               <Contact id="contact" />
               <ThemeToggle />

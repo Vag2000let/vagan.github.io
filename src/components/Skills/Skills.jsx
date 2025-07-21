@@ -23,7 +23,7 @@ const skillsData = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="skills-section">
+    <section id="skills" className="section">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -34,12 +34,7 @@ export default function Skills() {
 
         <div className="skills-grid">
           {skillsData.map((category, index) => (
-            <SkillCategory
-              key={index}
-              title={category.title}
-              items={category.items}
-              index={index}
-            />
+            <SkillCategory key={index} title={category.title} items={category.items} />
           ))}
         </div>
       </motion.div>

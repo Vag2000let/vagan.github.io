@@ -37,7 +37,7 @@ const strengths = [
 
 export default function Strengths() {
   return (
-    <section id="strengths" className="strengths-section">
+    <section id="strengths" className="section">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -53,7 +53,6 @@ export default function Strengths() {
               icon={strength.icon}
               title={strength.title}
               description={strength.description}
-              index={index}
             />
           ))}
         </div>

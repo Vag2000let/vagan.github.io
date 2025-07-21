@@ -10,8 +10,8 @@ export default function ThemeToggle() {
       onClick={toggleTheme}
       className="theme-toggle"
       aria-label={`Switch to ${theme.isDarkMode ? 'light' : 'dark'} mode`}
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.9 }}
+      whileHover={{ scale: 1.3 }}
+      whileTap={{ scale: 1.1 }}
     >
       <motion.span
         key={theme.toggleIcon}

@@ -1,17 +1,16 @@
 import { motion } from 'framer-motion'
-import './strengths.scss'
+import './professionalValues.scss'
 
-export default function StrengthCard({ icon, title, description }) {
+export default function ProfessionalValueCard({ title, description }) {
   return (
     <motion.div
-      className="strength-card"
+      className="value-card"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      viewport={{ once: true, margin: '-50px' }}
       transition={{ delay: 0 }}
       whileHover={{ scale: 1.02 }}
     >
-      <div className="strength-icon">{icon}</div>
       <h3>{title}</h3>
       <p>{description}</p>
     </motion.div>

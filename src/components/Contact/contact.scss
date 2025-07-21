@@ -1,16 +1,10 @@
 @use 'sass:color';
 
-.contact-section {
-  background: linear-gradient(135deg, rgba($primary, 0.05), rgba($secondary, 0.05));
-}
-
 .contact-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: spacer(4);
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 spacer(3);
+  margin-top: spacer(5);
 
   @media (max-width: breakpoint(lg)) {
     grid-template-columns: 1fr;
@@ -110,7 +104,7 @@
   gap: $spacer-unit;
   padding: $spacer-unit;
   border-radius: 4px;
-  color: $text-dark;
+  color: var(--text-color);
   text-decoration: none;
   background: rgba($gray, 0.3);
   transition: all 0.3s ease;
@@ -122,43 +116,5 @@
 
   .social-icon {
     font-size: 1.2rem;
-  }
-}
-
-// Dark mode styles
-.app.dark {
-  .contact-form {
-    .form-group {
-      label {
-        color: $text-light;
-      }
-
-      input,
-      textarea {
-        background: rgba(white, 0.1);
-        border-color: rgba(white, 0.2);
-        color: white;
-
-        &:focus {
-          border-color: $primary;
-        }
-      }
-    }
-  }
-
-  .contact-info {
-    h3,
-    p {
-      color: $text-light;
-    }
-  }
-
-  .social-link {
-    color: $text-light;
-    background: rgba(white, 0.1);
-
-    &:hover {
-      background: rgba($primary, 0.2);
-    }
   }
 }

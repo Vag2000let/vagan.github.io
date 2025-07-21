@@ -21,7 +21,7 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="projects-section">
+    <section id="projects" className="section">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}

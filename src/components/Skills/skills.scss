@@ -1,9 +1,5 @@
 @use 'sass:color';
 
-.skills-section {
-  background: linear-gradient(to bottom, rgba($secondary, 0.03), rgba($primary, 0.03));
-}
-
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -21,12 +17,6 @@
   padding: spacer(3);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease;
-
-  .app.dark & {
-    background: color.adjust($bg-dark, $lightness: 5%);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  }
-
   &:hover {
     transform: translateY(-5px);
   }
@@ -63,10 +53,6 @@
       position: absolute;
       left: 0;
       color: $secondary;
-    }
-
-    .app.dark & {
-      color: rgba($text-light, 0.9);
     }
   }
 }

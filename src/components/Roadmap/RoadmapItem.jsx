@@ -9,6 +9,12 @@ const getIcon = (title) => {
   return <FaCode />
 }
 
+const statuses = {
+  progress: 'В процессе',
+  planned: 'Запланировано',
+  future: 'Будущее'
+}
+
 export default function RoadmapItem({ item }) {
   return (
     <motion.div
@@ -24,11 +30,7 @@ export default function RoadmapItem({ item }) {
         <h3>{item.title}</h3>
         <p>{item.description}</p>
         <div className="roadmap-meta">
-          <span className={`status ${item.status}`}>
-            {item.status === 'in-progress' && 'В процессе'}
-            {item.status === 'planned' && 'Запланировано'}
-            {item.status === 'future' && 'Будущее'}
-          </span>
+          <span className={`status ${item.status}`}>{statuses[item.status]}</span>
           <span className="timeline">{item.timeline}</span>
         </div>
       </div>

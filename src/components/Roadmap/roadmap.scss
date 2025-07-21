@@ -1,26 +1,8 @@
 @use 'sass:color';
 
-.roadmap-section {
-  background: rgba($secondary, 0.05);
-  padding: spacer(4) 0;
-  position: relative;
-
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background: $primary;
-  }
-}
-
 .roadmap-container {
   max-width: 800px;
-  margin: 0 auto;
-  padding: 0 spacer(3);
+  margin: 2rem auto 0 auto;
   position: relative;
 
   &::before {
@@ -59,7 +41,7 @@
     background: $gray;
   }
 
-  &.in-progress::before {
+  &.progress::before {
     background: $primary;
   }
 
@@ -119,7 +101,7 @@
     border-radius: 4px;
     font-weight: 500;
 
-    &.in-progress {
+    &.progress {
       background: rgba($primary, 0.1);
       color: $primary;
     }

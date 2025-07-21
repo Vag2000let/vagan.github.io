@@ -6,14 +6,14 @@ const roadmapItems = [
   {
     title: 'Освоение Kubernetes',
     description: 'Глубокое изучение оркестрации контейнеров и облачных технологий',
-    status: 'in-progress',
-    timeline: '2024'
+    status: 'progress',
+    timeline: '2025'
   },
   {
     title: 'AI-агенты в разработке',
     description: 'Исследование возможностей применения искусственного интеллекта в веб-разработке',
-    status: 'planned',
-    timeline: '2024-2025'
+    status: 'progress',
+    timeline: '2025'
   },
   {
     title: 'Cloud Native подходы',
@@ -31,7 +31,7 @@ const roadmapItems = [
 
 export default function Roadmap() {
   return (
-    <section id="roadmap" className="roadmap-section">
+    <section id="roadmap" className="section">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
