@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import {
   FaCode,
@@ -7,7 +8,6 @@ import {
   FaMapMarkedAlt,
   FaEnvelope
 } from 'react-icons/fa'
-import ThemeToggle from '../ThemeToggle/ThemeToggle'
 import profilePhoto from '../../assets/images/profile-photo.jpg'
 import './header.scss'
 
@@ -21,16 +21,42 @@ const navItems = [
 ]
 
 export default function Header({ activeSection, setActiveSection }) {
+  const [isHover, setIsHover] = useState(false)
+
   return (
     <header className="header">
       <div className="header-container">
-        <motion.div
+        <div
           className="photo-container"
-          whileHover={{ scale: 1.05 }}
-          transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+          onMouseEnter={() => setIsHover(true)}
+          onMouseLeave={() => setIsHover(false)}
         >
-          <img src={profilePhoto} alt="Фото профиля" className="profile-photo" />
-        </motion.div>
+          {isHover && (
+            <motion.div
+              className="wave-hand"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{
+                opacity: 1,
+                x: 0,
+                rotate: [0, 14, -8, 14, -4, 0]
+              }}
+              transition={{
+                opacity: { duration: 0.3 },
+                rotate: {
+                  duration: 1.5,
+                  repeat: Infinity,
+                  repeatType: 'reverse',
+                  ease: 'easeInOut'
+                }
+              }}
+            >
+              👋
+            </motion.div>
+          )}
+
+          <img src={profilePhoto} alt="Фото профиля" className="photo-profile" />
+        </div>
+
         <motion.div
           className="header-text"
           initial={{ opacity: 0, y: -20 }}

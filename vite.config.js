@@ -8,7 +8,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 export default defineConfig({
   plugins: [react()],
   // Базовый путь для GitHub Pages
-  base: '/vagan.github.io/',
+  base: '/portfolio',
   assetsInclude: ['**/*.jpg', '**/*.png', '**/*.jpeg'],
   css: {
     preprocessorOptions: {
