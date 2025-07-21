@@ -34,7 +34,13 @@ export default function Skills() {
 
         <div className="skills-grid">
           {skillsData.map((category, index) => (
-            <SkillCategory key={index} title={category.title} items={category.items} />
+            <SkillCategory
+              key={index}
+              title={category.title}
+              items={category.items}
+              index={index}
+              total={skillsData.length}
+            />
           ))}
         </div>
       </motion.div>

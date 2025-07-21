@@ -35,7 +35,6 @@ export default function Roadmap() {
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
         <h2>Мои планы развития</h2>
