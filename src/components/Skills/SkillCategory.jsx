@@ -16,10 +16,11 @@ export default function SkillCategory({ title, items, index, total }) {
         rotateZ: rotation,
         transition: {
           type: 'spring',
-          stiffness: 30, // Уменьшаем жесткость
-          damping: 10, // Добавляем демпфирование
-          mass: 0.5, // Уменьшаем массу для более легкого движения
-          delay: index * 0.15 // Увеличиваем задержку между карточками
+          stiffness: 30,
+          damping: 10,
+          mass: 0.5,
+          delay: index * 0.1,
+          restDelta: 0.001
         }
       }}
       whileHover={{
@@ -29,14 +30,16 @@ export default function SkillCategory({ title, items, index, total }) {
         transition: {
           type: 'spring',
           stiffness: 50,
-          damping: 10
+          damping: 10,
+          delay: 0
         }
       }}
-      viewport={{ once: false, margin: '0px 0px -100px 0px' }}
+      viewport={{ once: false, margin: '0px 0px -50px 0px' }}
       style={{
         originX: 0.5,
         originY: 1,
-        transformStyle: 'preserve-3d' // Добавляем 3D-перспективу
+        transformStyle: 'preserve-3d',
+        willChange: 'transform'
       }}
     >
       <h3>{title}</h3>
@@ -50,10 +53,12 @@ export default function SkillCategory({ title, items, index, total }) {
               x: 0,
               transition: {
                 type: 'spring',
-                delay: i * 0.07 + 0.3,
-                stiffness: 100
+                delay: i * 0.05 + 0.2,
+                stiffness: 100,
+                restDelta: 0.001
               }
             }}
+            viewport={{ once: true }}
           >
             {skill}
           </motion.li>

@@ -41,6 +41,7 @@ export default function Contact() {
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2 }}
+            viewport={{ once: true }}
           >
             <div className="form-group">
               <label htmlFor="name">Имя</label>
@@ -102,6 +103,7 @@ export default function Contact() {
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.4 }}
+            viewport={{ once: true }}
           >
             <h3>Контактная информация</h3>
             <p>

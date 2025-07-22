@@ -11,11 +11,29 @@
   margin-top: spacer(5);
   perspective: 1000px;
   padding: 40px 0;
+  transform-style: preserve-3d;
+  will-change: transform;
 
-  @include respond(breakpoint(md)) {
+  @media (max-width: 1024px) {
+    gap: 15px;
+    padding: 25px 0;
+    perspective: 800px;
+
+    .skill-category {
+      transform: rotateZ(calc(var(--rotation) * 0.7)) !important;
+    }
+  }
+
+  @media (max-width: 768px) {
     flex-direction: column;
     align-items: center;
     gap: spacer(3);
+    perspective: none;
+    padding: 20px 0;
+
+    .skill-category {
+      transform: none !important;
+    }
   }
 }
 
@@ -24,17 +42,39 @@
   border-radius: 12px;
   padding: spacer(3);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
   width: 250px;
   min-height: 300px;
   position: relative;
   cursor: pointer;
-
   transform-style: preserve-3d;
-  backface-visibility: hidden; // Улучшаем рендеринг 3D-преобразований
-  will-change: transform; // Оптимизация для анимаций
+  backface-visibility: hidden;
+  will-change: transform;
+  transform: translateZ(0);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+
+  @media (max-width: 1024px) {
+    width: 220px;
+    min-height: 280px;
+
+    &:hover {
+      transform: translateY(-8px) scale(1.03) !important;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    max-width: 300px;
+    min-height: auto;
+    padding: spacer(2.5);
+
+    &:hover {
+      transform: translateY(-5px) scale(1.02) !important;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+  }
 
   &:hover {
     transform: translateY(-10px) scale(1.05) !important;
@@ -50,6 +90,14 @@
     position: relative;
     padding-bottom: $spacer-unit;
     margin-top: 0;
+
+    @media (max-width: 1024px) {
+      font-size: 1.15rem;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 1.1rem;
+    }
 
     &::after {
       content: '';
@@ -72,6 +120,17 @@
     padding: spacer(1) 0 spacer(1) spacer(3);
     position: relative;
     font-size: 0.95rem;
+    will-change: transform, opacity;
+
+    @media (max-width: 1024px) {
+      font-size: 0.9rem;
+      padding: spacer(0.75) 0 spacer(0.75) spacer(2.5);
+    }
+
+    @media (max-width: 768px) {
+      font-size: 0.88rem;
+      padding: spacer(0.5) 0 spacer(0.5) spacer(2);
+    }
 
     &::before {
       content: '▹';

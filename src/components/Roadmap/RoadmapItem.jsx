@@ -23,6 +23,7 @@ export default function RoadmapItem({ item }) {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ delay: 0 }}
       whileHover={{ scale: 1.02 }}
+      viewport={{ once: true }}
     >
       <div className="roadmap-icon">{getIcon(item.title)}</div>
       <div className="roadmap-content">
