@@ -73,7 +73,7 @@ const ProjectCard = ({ project }) => {
           )}
 
           <a href={project.link} target="_blank" rel="noopener noreferrer" aria-label="Live demo">
-            <FaExternalLinkAlt /> Демо
+            <FaExternalLinkAlt /> Описание
           </a>
         </div>
       </div>
