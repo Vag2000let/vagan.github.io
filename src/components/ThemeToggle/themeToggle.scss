@@ -1,13 +1,11 @@
 .theme-toggle {
   @include button-reset;
   position: fixed;
-  top: spacer(1);
-  right: spacer(1);
-  width: 2.5rem;
-  height: 2.5rem;
+  top: spacer(3);
+  right: spacer(3);
   border-radius: $border-radius-pill;
   @include flex-center;
-  background: rgba(var(--primary-rgb), 0.1);
+  background: rgba(var(--primary), 0.1);
   backdrop-filter: blur(4px);
   z-index: z-index(high);
   transition: all $transition-normal;
@@ -16,7 +14,6 @@
   color: var(--primary);
 
   &:hover {
-    background: rgba(var(--primary-rgb), 0.2);
     transform: scale(1.1);
   }
 
@@ -29,7 +26,6 @@
     transform: scale(0.95);
   }
 
-  // Анимация иконки
   .icon-wrapper {
     @include flex-center;
     width: 100%;
@@ -54,37 +50,5 @@
         opacity: 0;
       }
     }
-  }
-
-  // Состояния для темной темы
-  .dark & {
-    color: var(--secondary);
-
-    .icon-wrapper {
-      .sun {
-        transform: translateY(-100%);
-        opacity: 0;
-      }
-
-      .moon {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-
-    &:focus-visible {
-      outline-color: var(--secondary);
-    }
-  }
-}
-
-// Адаптация для мобильных устройств
-@media (max-width: breakpoint(md)) {
-  .theme-toggle {
-    width: 2.2rem;
-    height: 2.2rem;
-    font-size: 1.1rem;
-    top: $spacer-unit;
-    right: $spacer-unit;
   }
 }

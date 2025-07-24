@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   Header,
@@ -8,11 +8,20 @@ import {
   ProfessionalValues,
   Roadmap,
   Contact,
-  ThemeToggle
+  ThemeToggle,
+  ScrollToTopButton
 } from '@/components'
 
 export default function App() {
-  const [activeSection, setActiveSection] = useState('home')
+  const [activeSection, setActiveSection] = useState('')
+
+  useEffect(() => {
+    if (activeSection) {
+      const section = document.getElementById(activeSection)
+      section.scrollIntoView({ behavior: 'smooth' })
+      setActiveSection('')
+    }
+  }, [activeSection])
 
   return (
     <>
@@ -25,18 +34,17 @@ export default function App() {
           transition={{ duration: 0.2 }}
           className="container"
         >
-          {activeSection === 'home' && (
-            <>
-              <Header activeSection={activeSection} setActiveSection={setActiveSection} />
-              <Skills id="skills" />
-              <Projects id="projects" />
-              <Strengths id="strengths" />
-              <ProfessionalValues id="values" />
-              <Roadmap id="roadmap" />
-              <Contact id="contact" />
-              <ThemeToggle />
-            </>
-          )}
+          <>
+            <Header activeSection={activeSection} setActiveSection={setActiveSection} />
+            <Skills id="skills" />
+            <Projects id="projects" />
+            <Strengths id="strengths" />
+            <ProfessionalValues id="values" />
+            <Roadmap id="roadmap" />
+            <Contact id="contact" />
+            <ThemeToggle />
+            <ScrollToTopButton />
+          </>
         </motion.main>
       </AnimatePresence>
     </>

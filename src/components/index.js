@@ -6,5 +6,16 @@ import Skills from '@/components/Skills/Skills'
 import Strengths from '@/components/Strengths/Strengths'
 import ProfessionalValues from '@/components/ProfessionalValues/ProfessionalValues'
 import ThemeToggle from '@/components/ThemeToggle/ThemeToggle'
+import ScrollToTopButton from '@/components/ScrollToTopButton/ScrollToTopButton'
 
-export { Contact, Header, Projects, Roadmap, Skills, Strengths, ProfessionalValues, ThemeToggle }
+export {
+  Contact,
+  Header,
+  Projects,
+  Roadmap,
+  Skills,
+  Strengths,
+  ProfessionalValues,
+  ThemeToggle,
+  ScrollToTopButton
+}

@@ -35,27 +35,6 @@ body {
     color 0.3s ease;
 }
 
-/* Основные переменные для темы */
-// :root {
-//   // Светлая тема
-//   --primary: #{$primary};
-//   --secondary: #{$secondary};
-//   --bg-color: #{$bg-light};
-//   --text-color: #{$text-dark};
-//   --bg-card: $bg-card-light;
-//   --border-color: #e0e0e0;
-//   --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-
-//   // &.dark {
-//   //   // Темная тема
-//   //   --bg-color: #{$bg-dark};
-//   //   --text-color: #{$text-light};
-//   //   --bg-card: #{color.adjust($bg-card-dark, $lightness: 5%)};
-//   //   --border-color: #{color.adjust($bg-card-dark, $lightness: 10%)};
-//   //   --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-//   // }
-// }
-
 /* Основная структура приложения */
 .app {
   min-height: 100vh;
@@ -127,38 +106,6 @@ p {
 
 .text-center {
   text-align: center;
-}
-
-/* Кнопка переключения темы */
-.theme-toggle {
-  @include button-reset;
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  cursor: pointer;
-  z-index: 1000;
-  background: rgba(var(--primary), 0.1);
-  color: var(--primary);
-  transition: all 0.3s ease;
-
-  &:hover {
-    background: rgba(var(--primary), 0.2);
-    transform: scale(1.1);
-  }
-
-  @media (max-width: breakpoint(md)) {
-    top: 15px;
-    right: 15px;
-    width: 36px;
-    height: 36px;
-  }
 }
 
 /* Анимации */

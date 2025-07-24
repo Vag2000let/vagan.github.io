@@ -5,7 +5,7 @@ import './roadmap.scss'
 const roadmapItems = [
   {
     title: 'Освоение Kubernetes',
-    description: 'Глубокое изучение оркестрации контейнеров и облачных технологий',
+    description: 'Изучение оркестрации контейнеров',
     status: 'progress',
     timeline: '2025'
   },
@@ -13,12 +13,6 @@ const roadmapItems = [
     title: 'AI-агенты в разработке',
     description: 'Исследование возможностей применения искусственного интеллекта в веб-разработке',
     status: 'progress',
-    timeline: '2025'
-  },
-  {
-    title: 'Cloud Native подходы',
-    description: 'Расширение экспертизы в области облачных технологий и serverless архитектур',
-    status: 'planned',
     timeline: '2025'
   },
   {
